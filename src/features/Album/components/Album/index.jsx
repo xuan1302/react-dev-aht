@@ -8,7 +8,7 @@ Album.propTypes = {
 function Album({ album }) {
     return (
         <div className='album'>
-            <img src={album.thumbnail} />
+            <img src={album.thumbnail} alt='' />
             <h4>{album.name}</h4>
         </div>
     );
