@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-
+import AlbumFeature from './features/Album';
+import TotoFeature from './features/Todo';
+import RadioButtonFeature from './features/radiobutton';
+import CheckboxFeature from './features/Checkbox';
+import TodoListState from './features/TodoListUseState';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          WhyNotSuaan
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TotoFeature />
+      <AlbumFeature />
+      <RadioButtonFeature />
+      <CheckboxFeature />
+      <TodoListState />
     </div>
   );
 }
