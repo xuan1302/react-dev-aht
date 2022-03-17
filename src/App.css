@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.menu-global a{
+  padding: 0 15px;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+.menu-global a:hover{
+  color: rgb(0, 255, 55);
+}
+.menu-global a.active{
+  color: rgb(0, 255, 55);
+}
