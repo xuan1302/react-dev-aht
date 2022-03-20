@@ -23,7 +23,6 @@ function ListPage(props) {
     ]
     const location = useLocation();
     const history = useHistory();
-
     const match = useRouteMatch();
     const [todoList, setTodoList] = useState(inittodoList);
     const [filteredStatus, setFilteredStatus] = useState(() => {

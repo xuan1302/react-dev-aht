@@ -7,12 +7,14 @@ import TodoListState from './features/TodoListUseState';
 import CountDown from './features/CountDown';
 import UploadImage from './features/UploadImage';
 import TimeStartStop from './features/TimeStartStop';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, NavLink, Route, Router, Routes, Switch } from 'react-router-dom';
 import NotFound from './components/NotFound';
+import productApi from './api/categoryApi';
 
 function App() {
   const [showCountDown, setShowCountDown] = useState(false);
+
   return (
     <div className="App">
       <div className='menu-global'>
