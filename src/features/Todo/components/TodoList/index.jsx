@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './style.scss';
-import TodoForm from '../TodoForm';
+
 TodoList.propTypes = {
     todoList: PropTypes.array,
     onTodoClick: PropTypes.func,
@@ -18,13 +18,10 @@ function TodoList({ todoList, onTodoClick }) {
         onTodoClick(todo, indx);
     }
 
-    const handleFormTodoSubmit = (values) => {
-        console.log('Form submit: ', values)
-    }
+
     return (
         <div>
-            <h3>Todo Form</h3>
-            <TodoForm onSubmit={handleFormTodoSubmit} />
+
             <ul className='todolist'>
                 {
                     todoList.map((todo, indx) => (
