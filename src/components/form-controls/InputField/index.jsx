@@ -15,7 +15,6 @@ function InputField(props) {
     const { form, name, label, disabled } = props;
     const { errors, formState } = form;
     const hasError = formState.errors[name];
-    console.log(formState.errors[name])
 
     return (
         <Controller
@@ -24,9 +23,12 @@ function InputField(props) {
             }) => (
                 <TextField
                     value={value}
+                    variant='outlined'
                     onChange={onChange} // send value to hook form
                     inputRef={ref} // wire up the input ref
                     label={label}
+                    fullWidth
+                    margin='normal'
                     disabled={disabled}
                     error={!!hasError}
                     helperText={formState.errors[name]?.message}

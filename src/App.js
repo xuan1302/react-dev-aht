@@ -7,16 +7,37 @@ import TodoListState from './features/TodoListUseState';
 import CountDown from './features/CountDown';
 import UploadImage from './features/UploadImage';
 import TimeStartStop from './features/TimeStartStop';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, Route, Router, Routes, Switch } from 'react-router-dom';
 import NotFound from './components/NotFound';
 import productApi from './api/categoryApi';
-
+import CounterFeature from './features/Counter';
+import Header from './components/header';
+import ProductFeature from './features/Product';
+import CartFeature from './features/Cart';
+import TodoListReducerFeature from './features/useReducerToDoList';
 function App() {
   const [showCountDown, setShowCountDown] = useState(false);
+  const [job, setJob] = useState('');
+  const [listJob, setListJob] = useState([]);
+
+  const inputRef = useRef();
+  const handleSubmit = () => {
+    if (!job) return;
+    setListJob([...listJob, job])
+    setJob('');
+    inputRef.current.focus();
+  }
+  const handleDeleteJob = (index) => {
+    const newListJob = [...listJob];
+    newListJob.splice(index, 1)
+    setListJob(newListJob)
+  }
+
 
   return (
     <div className="App">
+      <Header />
       <div className='menu-global'>
         Link
         <Link to='/'>Home</Link>
@@ -49,10 +70,12 @@ function App() {
         <Route path='/todolist' component={TodoListState} />
         <Route path='/upload' component={UploadImage} />
         <Route path='/time' component={TimeStartStop} />
+        <Route path='/products' component={ProductFeature} />
+        <Route path='/cart' component={CartFeature} />
         <Route component={NotFound} />
 
       </Switch>
-
+      <CounterFeature />
       <button
         onClick={() => setShowCountDown(!showCountDown)}
       >Toggle CountDown</button>
@@ -61,6 +84,25 @@ function App() {
           <CountDown />
         )
       }
+
+      <input
+        placeholder='Enter...'
+        ref={inputRef}
+        onChange={(e) => { setJob(e.target.value) }}
+        value={job}
+      />
+      <button
+        onClick={handleSubmit}
+      >Submit</button>
+      <div>
+        {
+          listJob.map((data, index) => (
+            <li key={index}>{data} <span onClick={() => handleDeleteJob(index)}>Xóa</span></li>
+          ))
+        }
+      </div>
+
+      <TodoListReducerFeature />
 
     </div>
   );

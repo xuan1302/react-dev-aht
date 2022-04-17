@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -49,4 +47,23 @@
 }
 .menu-global a.active{
   color: rgb(0, 255, 55);
+}
+.list-menu-product{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-menu-product li{
+  list-style: none;
+  padding-right: 15px;
+}
+.list-menu-product li a.active{
+  text-decoration: underline;
+  color: #000;
+}
+.loadding-detail-product{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }

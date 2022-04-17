@@ -23,8 +23,11 @@ function ListPage(props) {
         },
     ]
     const location = useLocation();
+    console.log('location: ', location)
     const history = useHistory();
+    console.log('history: ', history)
     const match = useRouteMatch();
+    console.log('match: ', match)
     const [todoList, setTodoList] = useState(inittodoList);
     const [filteredStatus, setFilteredStatus] = useState(() => {
         const param = queryString.parse(location.search)
